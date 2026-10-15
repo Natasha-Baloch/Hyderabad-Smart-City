@@ -1,0 +1,7 @@
+-- Provision privileged roles. Run ONLY in the Supabase SQL editor (runs as postgres, auth.uid() is null,
+-- so the privilege guard trigger allows it). There is no public sign-up path to these roles.
+-- 1) Have the person sign up normally (they become 'citizen').  2) Run the matching statement:
+-- update public.profiles set role = 'mayor' where id = (select id from auth.users where email = 'MAYOR_EMAIL_HERE');
+-- update public.profiles set role = 'chief_minister' where id = (select id from auth.users where email = 'CM_EMAIL_HERE');
+-- update public.profiles set role = 'municipal_staff', department = 'Roads' where id = (select id from auth.users where email = 'STAFF_EMAIL_HERE');
+-- update public.profiles set role = 'system_admin' where id = (select id from auth.users where email = 'ADMIN_EMAIL_HERE');
